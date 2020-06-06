@@ -35,6 +35,10 @@ class VideoProcessor:
 
         not_found_words = []
         for word in words:
+            if '  ' in word:
+                word = 'space2'
+            elif ' ' in word:
+                word = 'space'
             file_path = os.path.join(self.path, "words", f"{word}.mp4")
             if not os.path.exists(file_path):
                 not_found_words.append(word)
